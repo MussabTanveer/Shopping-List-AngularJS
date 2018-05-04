@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shopping List</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="shortcut icon" href="shoppinglist.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div ng-app="myShoppingList" ng-controller="myCtrl" class="container">
+        <br><br>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3>My Shopping List</h3>
+            </div>
+            <div class="panel-body">
+                <!--Display Items-->
+                <ul class="list-group" style="margin:0px">
+                    <li ng-repeat="x in products" class="list-group-item list-group-item-info">
+                        {{x}}
+                        <!--Remove Items-->
+                        <span ng-click="removeItem($index)" class="badge">&times;</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!--Add Items-->
+        <div class="row">
+            <div class="col-xs-6">
+                <input type="text" ng-model="addMe" class="form-control" placeholder="Add shopping items here">
+            </div>
+            <div class="col-xs-6">
+                <button ng-click="addItem()" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+
+        <!--Error Handling-->
+        <br>
+        <div ng-show="presentItem" class="alert alert-info">
+            The item is already in your shopping list.
+        </div>
+    </div>
+
+    <script src="controller.js"></script>
+</body>
+</html>
