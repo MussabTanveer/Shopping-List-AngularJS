@@ -1,0 +1,1 @@
+This AngularJS app is a shopping list, where you can add or remove items
